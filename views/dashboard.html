@@ -1,0 +1,41 @@
+{% extends "layout.html" %} {% block content %}
+<h1>Weclome {{session.name}}</h1>
+<a href="/logout">Logout</a>
+
+<div>
+  {#
+  <form action="">
+    <input type="hidden" value="{{user.id}}" />
+
+    <input type="text" name="firstname" value="{{ user.id }}" />
+    <input type="text" name="firstname" />
+    <button type="submit" name="submit">Submit</button>
+  </form>
+  #} {#
+  <table>
+    <thead>
+      <tr>
+        <th>ID:</th>
+        <th>Lastname:</th>
+        <th>Firstname:</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.id | e }}</td>
+        <td>{{ user.firstname | e }}</td>
+        <td>{{ user.lastname | e }}</td>
+        <td>
+          <button type="button" class="btn btn-info">
+            <a href="/dashboard?edit={{ user.id }}" class="text-dark">Edit</a>
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  #}
+</div>
+{% endblock content %}

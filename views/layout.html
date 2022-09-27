@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {# CSS #}
+    <link rel="stylesheet" href="style.css" />
+
+    {# Google Fonts #}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+
+    {# Script #}
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <div class="humanresource">
+      {% block header %} {% if session.name != null and session.name is same as
+      'John Doe' %}
+      <header class="header">
+        <nav class="header__nav">
+          <div class="header__menu">
+            <img src="/asset/icons/menu-burger.svg" alt="" />
+          </div>
+          <div class="header__profile">
+            <div>
+              <img
+                src="/asset/user/john_doe.jpg"
+                alt=""
+                class="header__profile_image"
+              />
+            </div>
+            <div class="header__profile__sec">
+              <div>
+                <h2 class="header__profile__name">{{ session.name }}</h2>
+                <p class="header__profile__job_title">HR Generalist</p>
+              </div>
+              <img
+                src="/asset/icons/left-chevron.png"
+                alt=""
+                class="header__profile__drop-down"
+              />
+            </div>
+          </div>
+        </nav>
+      </header>
+      <aside class="sidebar">
+        <nav class="sidebar__nav">
+          <div class="sidebar__company">
+            <div class="sidebar__company_logo">
+              <img src="/asset/logo/company_logo.jpg" alt="" />
+            </div>
+            <h2 class="sidebar__company_name">Company Incorporation</h2>
+          </div>
+          <ul class="sidebar__list">
+            <li class="sidebar__item">
+              <a href="/dashboard" class="sidebar__link-icon">
+                <span class="icons">
+                  <img src="/asset/icons/apps.svg" alt="" />
+                </span>
+              </a>
+
+              <a href="/dashboard" class="sidebar__link"> Dashboard </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/recruitment" class="sidebar__link-icon">
+                <span class="icons">
+                  <img src="/asset/icons/apps.svg" alt="" />
+                </span>
+              </a>
+
+              <a href="/recruitment" class="sidebar__link"> Recruitment </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      {% endif %} {% endblock header %}
+      <div class="content">{% block content %} {% endblock content %}</div>
+    </div>
+  </body>
+</html>
